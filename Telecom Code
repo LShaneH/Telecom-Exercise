@@ -1,0 +1,20 @@
+#Select all product names where the product type is Internet, from products table
+
+Select product_name
+From products
+Where product_type="Internet";
+
+#Select all customer IDs from customer subscriptions table where product ID is 1
+
+SELECT customer_id
+FROM customer_subscriptions
+WHERE product_id=1;
+
+#Select customer email addresses from subscriptions table where they are subscribed to an Internet product (from products table)
+
+SELECT email
+FROM customer_subscriptions
+WHERE product_id
+IN (SELECT product_id
+    FROM products
+    WHERE product_type="Internet");
