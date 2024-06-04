@@ -1,0 +1,11 @@
+COMMENT uses CASE, COUNT, and GROUP BY commands to summarize data from marathon table
+
+
+SELECT count(*),
+CASE WHEN completion_fraction >=.75 THEN "75%+"
+WHEN completion_fraction>=.50 THEN "50%+"
+WHEN completion_fraction>=.25 THEN "25%+"
+ELSE "Under 25%"
+END AS quarter_completed
+FROM marathon
+GROUP BY quarter_completed
